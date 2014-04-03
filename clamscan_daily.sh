@@ -1,5 +1,9 @@
 #!/bin/bash
- 
+
+#============================================#
+#        User configuration section          #
+#============================================#
+
 # email subject for detection of infected items
 SUBJECT="VIRUS DETECTED ON `hostname`!!!"
 #email subject for no infected items
