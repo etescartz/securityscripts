@@ -13,6 +13,8 @@ EMAIL="example@domain.com"
 # Log location
 LOG=/var/log/clamav/scan.log
 
+#============================================#
+
 check_scan () {
 
     # Check the last set of results. If there are any "Infected" counts that aren't zero, we have a problem.

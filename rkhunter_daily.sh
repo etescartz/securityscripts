@@ -13,6 +13,8 @@ EMAIL="example@domain.com"
 # Log location
 LOG=/var/log/rkhunter.log
 
+#============================================#
+
 rkunter_scan () {
 ionice -c3 nice -n 19 /usr/local/bin/rkhunter --versioncheck
 ionice -c3 nice -n 19 /usr/local/bin/rkhunter --update
