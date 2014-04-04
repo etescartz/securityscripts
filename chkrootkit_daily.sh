@@ -15,16 +15,22 @@ LOG=/tmp/chkrootkit.log
 
 check_scan () {
 
-ionice -c3 nice -n 19 /usr/sbin/chkrootkit -q > ${LOG}
+ionice -c3 nice -n 19 /usr/sbin/chkrootkit -q > ${LOG} 
 
-EMAILMESSAGE=`mktemp /tmp/rkhunter-virus-alert.XXXXX`
-                           echo "To: ${EMAIL}" >>  ${EMAILMESSAGE}
-                           echo "From: root@localhost.localdomain" >>  ${EMAILMESSAGE}
-                           echo "Subject: ${SUBJECT}" >>  ${EMAILMESSAGE}
-                           echo "Importance: High" >> ${EMAILMESSAGE}
-                           echo "X-Priority: 1" >> ${EMAILMESSAGE}
-                           echo "`tail -n 29 ${LOG}`" >> ${EMAILMESSAGE}
-                           sendmail -t < ${EMAILMESSAGE}
+}
+
+send_results () {
+
+EMAILMESSAGE=`mktemp /tmp/chkrootkit-alert.XXXXX`
+echo "To: ${EMAIL}" >>  ${EMAILMESSAGE}
+echo "From: root@localhost.localdomain" >>  ${EMAILMESSAGE}
+echo "Subject: ${SUBJECT}" >>  ${EMAILMESSAGE}
+echo "Importance: High" >> ${EMAILMESSAGE}
+echo "X-Priority: 1" >> ${EMAILMESSAGE}
+echo "`tail -n 50 ${LOG}`" >> ${EMAILMESSAGE}
+sendmail -t < ${EMAILMESSAGE}
 }
 
 check_scan
+
+send_results
