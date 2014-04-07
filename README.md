@@ -1,4 +1,4 @@
-securityscripts
+usefulscripts
 ===============
 
 These scripts are custom tailored for my needs and according to the best of my current knowledge and ability.
@@ -7,4 +7,4 @@ I'm always interrested in broadening my horizons so, if someone has a simpler/be
 
 !!!!!USE THEM AT YOUR OWN RISK!!!!!
 
-Simple cron scripts for security testing and other custom cron jobs.
+Simple bash scripts for security,backup, that can be used as cron jobs.
