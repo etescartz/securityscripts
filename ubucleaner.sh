@@ -2,7 +2,7 @@
 #Ubuntu cleaner scripts
 #picked this one up a long time ago from gnome-look.org
 
-
+[ `whoami` != 'root' ] && exec sudo $0
 
 OLDCONF=$(dpkg -l|grep "^rc"|awk '{print $2}')
 CURKERNEL=$(uname -r|sed 's/-*[a-z]//g'|sed 's/-386//g')
