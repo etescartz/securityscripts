@@ -40,6 +40,6 @@ check_scan () {
 
 }
 
-ionice -c3 nice -n 19 clamscan -r / --exclude-dir=/sys/ --quiet --infected --log=${LOG}
+ionice -c3 nice -n 19 clamscan -r / --exclude-dir=/sys/ --exclude-dir=/dev --exclude-dir=/proc--quiet --infected --log=${LOG}
 
 check_scan
